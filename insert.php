@@ -24,30 +24,11 @@ if (mysqli_connect_error()){
     $stmt->close();
   
       if( $num_row === 1 ) {
-        $_SESSION['userid'] = $username;
         header("Location: ./search2.html");
-      }
+      } else {
       header("Location: ./results.html");
+      }
 
 }
-/*
-    $stmt = $conn->prepare($SELECT);
-    echo $conn->error;
-    $stmt->execute();
-    $num_row = mysqli_num_rows($stmt);
-    $row=mysqli_fetch_array($stmt);
-    if( $n ){
-        $_SESSION['username']=$row['userid'];
-    
-    
-    $stmt = $conn->prepare($SELECT);
-    echo $conn->error;
-    $stmt->execute();
-    
-        header("Location: ./search.html");
-    } else {
-        echo "Failed to login";
-    }
-    */
 
 ?>

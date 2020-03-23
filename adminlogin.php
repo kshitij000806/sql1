@@ -26,8 +26,9 @@ if (mysqli_connect_error()){
       if( $num_row === 1 ) {
         $_SESSION['userid'] = $username;
         header("Location: ./close.html");
-      }
+      } else {
       header("Location: ./results.html");
+      }
     }
 
 ?>
