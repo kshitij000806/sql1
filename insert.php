@@ -27,7 +27,9 @@ if (mysqli_connect_error()){
         $_SESSION['userid'] = $username;
         header("Location: ./search2.html");
       }
-      echo "Failed to login";}
+      header("Location: ./results.html");
+
+}
 /*
     $stmt = $conn->prepare($SELECT);
     echo $conn->error;

@@ -66,7 +66,10 @@ if (mysqli_connect_error()){
     <td><?php echo $row1[0];?></td>
     <td><?php echo $row1[1];?></td>
     <td><?php echo $row1[2];?></td>
-    <td><?php echo $row1[3];?></td>
+
+    <td><a href="<?php echo $row1[3]; ?>">Profile</a>
+
+    <?php ?> 
 </tr>
 <?php endwhile;?>
 
