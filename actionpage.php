@@ -8,40 +8,70 @@ $dbname = "sqlinjections";
 
 $conn = new mysqli($host, $dbUsername, $dbPassword, $dbname);
 
+
 if (mysqli_connect_error()){
     echo "This was sad";
 } else {
     $terms = isset($search) ? $search : '';
-    $search_string = "SELECT * FROM space_cats WHERE ";
-    $display_words = "";
-
-    $keywords = explode(' ', $search);
-    foreach ($keywords as $word){
-      
-    $search_string .= "keywords LIKE '%".$word."%' OR ";
-    $display_words .= $word.' ';
+    if ($search == ""){
+      header("Location: ./search.html");
     }
-    $search_string = substr($search_string, 0, strlen($search_string)-4);
-    $display_words = substr($display_words, 0, strlen($display_words)-1);
-    }
+    $search_string = "SELECT * FROM space_cats WHERE cat_name LIKE '%$search%' ";
 
     $query = mysqli_query($conn, $search_string);
     $result_count = mysqli_num_rows($query);
-
-    if ($result_count > 0){
- 
-      // display the header for the display table
-      echo '<table class="search">';
-      
-      // loop though each of the results from the database and display them to the user
-      while ($row = mysqli_fetch_assoc($query)){
-        $path = $row['profile_link'];
-        header("Location: $path");
-      }
-      
-  }
-  else {
-      echo 'There were no results for your search.';
-  }
+}
 
 ?>
+
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<link rel="stylesheet" type= "text/css" href="searchstyle.css">
+
+<!-- banner -->
+<div class="hero-image">
+  <div class="hero-text">
+    <h1>WELCOME FELLOW SPACE CAT</h1>
+    <p>ENJOY THE SITE.</p>
+    <p> ucsec{f3ll0w5p4c3c47}</p>
+  </div>
+</div>
+
+<p>Find some of your fellow space cats here!</p>
+<!-- search bar -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<form class="example" action="actionpage.php" method = "POST">
+  <input type="text" placeholder="Search.." name="search">
+  <button type="submit"><i class="fa fa-search"></i></button>
+</form>
+
+<h5>Search Results</h5>
+
+<div class = "results_table">
+
+<!-- Table One -->
+<table style="background-color: white;">
+
+<tr>
+    <th>Cat Name</th>
+    <th>Home Planet</th>
+    <th>Tags</th>
+    <th>Profile Link</th>
+</tr>
+
+<?php while($row1 = mysqli_fetch_array($query)):;?>
+<tr>
+    <td><?php echo $row1[0];?></td>
+    <td><?php echo $row1[1];?></td>
+    <td><?php echo $row1[2];?></td>
+    <td><?php echo $row1[3];?></td>
+</tr>
+<?php endwhile;?>
+
+</table>
+
+</div>
+
+</html>
