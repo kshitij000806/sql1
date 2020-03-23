@@ -43,6 +43,20 @@ body, html {
     width: 80%
 }
 
+table{
+  background-color: white;
+  table-layout: fixed;
+  width: 100%;
+  overflow: scroll; 
+}
+
+th {
+  width: 25% !important;
+}
+.cats td {
+  min-width: 25% !important;
+}
+
 /* The hero image */
 .hero-image {
   /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
@@ -66,6 +80,17 @@ body, html {
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
+}
+.btn-link {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+  color: #0000EE;
+  padding: 0;
+  text-decoration: underline;
+  font-family: inherit;
+  font-size: inherit;
 }
 
 p{
