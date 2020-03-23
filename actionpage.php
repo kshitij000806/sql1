@@ -14,7 +14,7 @@ if (mysqli_connect_error()){
 } else {
     $terms = isset($search) ? $search : '';
     if ($search == ""){
-      header("Location: ./search.html");
+      header("Location: ./search2.html");
     }
     $search_string = "SELECT * FROM space_cats WHERE cat_name LIKE '%$search%' ";
 
@@ -52,7 +52,7 @@ if (mysqli_connect_error()){
 <div class = "results_table">
 
 <!-- Table One -->
-<table style="background-color: white;">
+<table>
 
 <tr>
     <th>Cat Name</th>

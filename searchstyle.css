@@ -43,6 +43,20 @@ body, html {
     width: 80%
 }
 
+table{
+  background-color: white;
+  table-layout: fixed;
+  width: 100%;
+  overflow: scroll; 
+}
+
+th {
+  width: 25% !important;
+}
+.cats td {
+  min-width: 25% !important;
+}
+
 /* The hero image */
 .hero-image {
   /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
