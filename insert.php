@@ -5,7 +5,7 @@ $password = $_POST['password'];
 
 $host = "localhost";
 $dbUsername = "root";
-$dbPassword = "pwdpwd";
+$dbPassword = "";
 $dbname = "sqlinjections";
 
 $conn = new mysqli($host, $dbUsername, $dbPassword, $dbname);
